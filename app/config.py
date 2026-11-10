@@ -6,14 +6,33 @@ from typing import Any, Dict, Optional, Tuple
 
 from dotenv import load_dotenv
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load environment variables before configuring storage paths.
+load_dotenv(dotenv_path=BASE_DIR / ".env", override=False)
+
+# Keep bundled seed files inside the project.
 DATA_DIR = BASE_DIR / "data"
 SEEDS_DIR = DATA_DIR / "seeds"
-DB_PATH = DATA_DIR / "phishpulse.db"
 
-# Ensure data directory exists and load .env without overriding explicit OS environment variables
-DATA_DIR.mkdir(parents=True, exist_ok=True)
-load_dotenv(dotenv_path=BASE_DIR / ".env", override=False)
+# Store runtime data on Render's persistent disk.
+PERSISTENT_DATA_DIR = Path(
+    os.getenv("WEBEYE_DATA_DIR", str(DATA_DIR))
+).resolve()
+
+PERSISTENT_DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+DB_PATH = PERSISTENT_DATA_DIR / "phishpulse.db"
+
+SCREENSHOTS_DIR = Path(
+    os.getenv(
+        "WEBEYE_SCREENSHOTS_DIR",
+        str(PERSISTENT_DATA_DIR / "sandbox_screenshots")
+    )
+).resolve()
+
+SCREENSHOTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def _env_bool(name: str, default: bool) -> bool:
@@ -107,7 +126,7 @@ class Settings:
     SAFETY_USER_AGENT: str = "PhishPulse-Scanner/1.0 (+https://github.com/security/phishpulse)"
 
     # Browser-Based Phishing Sandbox Limits & Storage
-    SANDBOX_SCREENSHOTS_DIR: Path = DATA_DIR / "sandbox_screenshots"
+    SANDBOX_SCREENSHOTS_DIR: Path = SCREENSHOTS_DIR
     SANDBOX_TIMEOUT_SECONDS: float = 20.0
     SANDBOX_WAIT_AFTER_LOAD_SECONDS: float = 1.8
     SANDBOX_WORKER_MEMORY_LIMIT_MB: int = 768

@@ -602,6 +602,7 @@ def _spawn_browser_and_get_ws(
         "--headless=new",
         "--incognito",
         "--disable-gpu",
+        "--disable-dev-shm-usage",
         "--no-first-run",
         "--no-default-browser-check",
         "--disable-extensions",
