@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebEye — Phishing Defense & Cyber Threat Intelligence</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- KaTeX Math Rendering for Infographics -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <!-- WebEye Tactical Dark Design System -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- Atmospheric Ambient Glows -->
+    <div class="ambient-glow-left"></div>
+    <div class="ambient-glow-right"></div>
+
+    <div class="app-container">
+
+        <!-- =========================================================
+             LEFT NAVIGATION RAIL (WEBEYE COMMAND)
+             ========================================================= -->
+        <aside class="sidebar">
+            <!-- WebEye Brand Aperture Emblem -->
+            <div class="brand-badge">
+                <div class="brand-logo-icon" aria-label="WebEye Emblem">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" d="M2.25 12s3.75-6.5 9.75-6.5S21.75 12 21.75 12s-3.75 6.5-9.75 6.5S2.25 12 2.25 12z" />
+                        <circle cx="12" cy="12" r="3.2" stroke-width="1.9" />
+                        <circle cx="12" cy="12" r="1.15" fill="currentColor" stroke="none" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="brand-title">WebEye</h1>
+                    <p class="brand-subtitle">Threat Intel Suite</p>
+                </div>
+            </div>
+
+            <!-- Quick Command Palette Search -->
+            <div class="sidebar-search" id="btn-quick-search-trigger" title="Press Ctrl+K or ⌘K">
+                <svg class="w-4 h-4 text-cyan-400/80 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" placeholder="Inspect target..." readonly>
+                <span class="search-shortcut-key">⌘K</span>
+            </div>
+
+            <!-- Section 1: Detection -->
+            <div class="menu-section-label">Detection</div>
+            <ul class="nav-list">
+                <li>
+                    <button class="nav-item-btn active" data-target-tab="tab-scanner">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <circle cx="12" cy="12" r="3" stroke-width="2" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v3m0 14v3M2 12h3m14 0h3" />
+                        </svg>
+                        <span>Live Scanner</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-item-btn" data-target-tab="tab-batch">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                        <span class="flex items-center justify-between flex-1">
+                            <span>Batch Evaluator</span>
+                            <span class="px-1.5 py-0.2 rounded text-[9px] bg-cyan-500/15 text-cyan-300 font-bold border border-cyan-500/30 mono">ASYNC</span>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Section 2: Investigation -->
+            <div class="menu-section-label">Investigation</div>
+            <ul class="nav-list">
+                <li>
+                    <button class="nav-item-btn" data-target-tab="tab-graph">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <circle cx="6" cy="6" r="2.5" stroke-width="2" />
+                            <circle cx="18" cy="7" r="2.5" stroke-width="2" />
+                            <circle cx="12" cy="18" r="2.5" stroke-width="2" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8.2 7.2l7.4-.2M7.4 8.1l3.5 7.7M16.7 9.2l-3.5 6.6" />
+                        </svg>
+                        <span class="flex items-center justify-between flex-1">
+                            <span>Threat Graph</span>
+                            <span class="px-1.5 py-0.2 rounded text-[9px] bg-rose-500/20 text-rose-300 font-bold border border-rose-500/30 mono">PIVOT</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-item-btn" data-target-tab="tab-sandbox">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <rect x="3" y="4" width="18" height="16" rx="2" stroke-width="2" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9h18M9 14l2 2 4-4" />
+                        </svg>
+                        <span class="flex items-center justify-between flex-1">
+                            <span>Browser Sandbox</span>
+                            <span class="px-1.5 py-0.2 rounded text-[9px] bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30 mono">ISO</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-item-btn" data-target-tab="tab-email">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <span class="flex items-center justify-between flex-1">
+                            <span>Email Analyzer</span>
+                            <span class="px-1.5 py-0.2 rounded text-[9px] bg-violet-500/20 text-violet-300 font-bold border border-violet-500/30 mono">.EML</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-item-btn" data-target-tab="tab-mitre">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h4v4H4V6zm6 0h4v4h-4V6zm6 0h4v4h-4V6zM4 12h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z" />
+                        </svg>
+                        <span class="flex items-center justify-between flex-1">
+                            <span>MITRE ATT&amp;CK</span>
+                            <span class="px-1.5 py-0.2 rounded text-[9px] bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30 mono">ATT&amp;CK</span>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Section 3: Intelligence -->
+            <div class="menu-section-label">Intelligence</div>
+            <ul class="nav-list">
+                <li>
+                    <button class="nav-item-btn" data-target-tab="tab-threat-intel">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                        <span>Threat Database</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-item-btn" data-target-tab="tab-history">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>Scan History &amp; STIX</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-item-btn" data-target-tab="tab-infographics">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                        </svg>
+                        <span>Architecture</span>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Sidebar Live Engine Status Card -->
+            <div class="sidebar-status-widget space-y-2">
+                <div class="flex items-center justify-between text-[11px]">
+                    <span class="font-bold uppercase tracking-wider text-cyan-300">WebEye Shield</span>
+                    <span class="flex items-center gap-1.5 text-emerald-400 font-semibold mono">
+                        <span class="status-dot-pulse"></span>ACTIVE
+                    </span>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-[11px] pt-1">
+                    <div class="p-2 rounded-lg bg-[#060a12] border border-slate-800/80">
+                        <div class="text-slate-500 text-[10px]">Audits</div>
+                        <div id="webeye-side-scans" class="text-slate-100 font-bold mono">--</div>
+                    </div>
+                    <div class="p-2 rounded-lg bg-[#060a12] border border-slate-800/80">
+                        <div class="text-slate-500 text-[10px]">Active IoCs</div>
+                        <div id="webeye-side-iocs" class="text-cyan-300 font-bold mono">--</div>
+                    </div>
+                </div>
+                <div class="text-[10px] text-slate-400 flex items-center justify-between pt-0.5 mono">
+                    <span>SSRF Defense</span>
+                    <span class="text-emerald-400 font-semibold">Strict</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- =========================================================
+             MAIN WORKSPACE CANVAS
+             ========================================================= -->
+        <main class="main-wrapper">
+
+            <!-- Frosted Glass Command Header -->
+            <header class="top-header">
+                <div class="flex items-center gap-3 min-w-0">
+                    <span class="hidden sm:inline-flex px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 mono">WebEye v1.1</span>
+                    <h2 id="current-page-heading" class="page-title truncate">Live Threat Assessment &amp; Heuristic Scanner</h2>
+                </div>
+
+                <div class="header-actions flex-shrink-0">
+                    <div class="hidden md:inline-flex status-pill-live mono">
+                        <span class="status-dot-pulse"></span>
+                        <span id="webeye-header-telemetry">API v1 · SSRF Shield</span>
+                    </div>
+
+                    <button id="btn-open-scan-modal" class="btn-primary text-xs flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        <span>Quick Scan</span>
+                    </button>
+
+                    <button class="icon-btn" title="WebEye Security Alerts" onclick="document.querySelector('[data-target-tab=\'tab-mitre\']')?.click()">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                        <span class="ping-dot"></span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="page-body">
+
+                <!-- =========================================================
+                     VIEW 1: LIVE MULTI-ENGINE THREAT SCANNER
+                     ========================================================= -->
+                <div id="tab-scanner" class="tab-pane-view space-y-6">
+
+                    <!-- Global WebEye Live Telemetry Strip -->
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="telemetry-kpi-card">
+                            <span class="text-[11px] uppercase tracking-wider font-semibold text-slate-400">Targets Inspected</span>
+                            <div class="flex items-baseline justify-between mt-1">
+                                <span id="webeye-telemetry-scans" class="text-2xl font-bold text-white mono">--</span>
+                                <span class="text-[10px] text-cyan-400 mono">Multi-Engine</span>
+                            </div>
+                        </div>
+                        <div class="telemetry-kpi-card">
+                            <span class="text-[11px] uppercase tracking-wider font-semibold text-slate-400">Malicious Flagged</span>
+                            <div class="flex items-baseline justify-between mt-1">
+                                <span id="webeye-telemetry-threats" class="text-2xl font-bold text-rose-400 mono">--</span>
+                                <span class="text-[10px] text-rose-300/80 mono">Phishing / High Risk</span>
+                            </div>
+                        </div>
+                        <div class="telemetry-kpi-card">
+                            <span class="text-[11px] uppercase tracking-wider font-semibold text-slate-400">Tracked Threat IoCs</span>
+                            <div class="flex items-baseline justify-between mt-1">
+                                <span id="webeye-telemetry-iocs" class="text-2xl font-bold text-cyan-300 mono">--</span>
+                                <span class="text-[10px] text-slate-400 mono">6 CTI Feeds + Pool</span>
+                            </div>
+                        </div>
+                        <div class="telemetry-kpi-card">
+                            <span class="text-[11px] uppercase tracking-wider font-semibold text-slate-400">Isolation &amp; SSRF Posture</span>
+                            <div class="flex items-baseline justify-between mt-1">
+                                <span id="webeye-telemetry-posture" class="text-sm font-bold text-emerald-400 mono mt-1">READY</span>
+                                <span class="text-[10px] text-emerald-300/80 mono">Bounded Worker</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Command Console -->
+                    <div class="dash-card hero-scanner-card p-6 sm:p-8 space-y-6">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="space-y-1.5">
+                                <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-[11px] font-semibold text-cyan-300">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                                    <span>WebEye Deep Phishing &amp; Infrastructure Inspection</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white tracking-tight">Inspect Any URL Across 4 Intelligence Engines</h3>
+                                <p class="text-xs text-slate-400 max-w-3xl">
+                                    Correlates lexical phishing heuristics, brand impersonation, HTTP security headers, X.509 SSL chains, live threat intelligence feeds, and MITRE ATT&amp;CK mapping inside SSRF-isolated workers.
+                                </p>
+                            </div>
+                        </div>
+
+                        <form id="scan-form" class="space-y-4">
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <div class="scanner-input-shell flex-1">
+                                    <svg class="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9" />
+                                    </svg>
+                                    <input
+                                        type="text"
+                                        id="url-input"
+                                        placeholder="Enter URL or domain (e.g. https://example.com or http://paypa1-update.xyz)"
+                                        class="flex-1 py-3 bg-transparent text-white placeholder-slate-500 text-sm mono focus:outline-none"
+                                        required
+                                    >
+                                </div>
+                                <button type="submit" id="btn-scan" class="btn-primary py-3 px-7 text-sm flex-shrink-0">
+                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                    <span>Execute Scan</span>
+                                </button>
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-between gap-4 pt-1 text-xs text-slate-300">
+                                <div class="flex flex-wrap items-center gap-4">
+                                    <label class="flex items-center gap-2 cursor-pointer px-2.5 py-1 rounded-lg bg-[#070b14]/80 border border-slate-800/80 hover:border-cyan-500/40 transition">
+                                        <input type="checkbox" id="opt-fetch-content" checked class="w-3.5 h-3.5 rounded">
+                                        <span>Inspect DOM &amp; credential forms</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer px-2.5 py-1 rounded-lg bg-[#070b14]/80 border border-slate-800/80 hover:border-cyan-500/40 transition">
+                                        <input type="checkbox" id="opt-deep-dns" checked class="w-3.5 h-3.5 rounded">
+                                        <span>Deep DNS SPF/DMARC resolution</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer px-2.5 py-1 rounded-lg bg-[#070b14]/80 border border-slate-800/80 hover:border-cyan-500/40 transition">
+                                        <input type="checkbox" id="opt-refresh-intel" class="w-3.5 h-3.5 rounded">
+                                        <span>Force refresh CTI cache</span>
+                                    </label>
+                                </div>
+
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <span class="text-slate-500 text-[11px] uppercase tracking-wider font-semibold">Samples:</span>
+                                    <button type="button" class="quick-example quick-chip-btn" data-url="http://paypa1-security-verification.xyz/login">PayPal Phish</button>
+                                    <button type="button" class="quick-example quick-chip-btn" data-url="http://microsoft-365-password-reset.live-verify.xyz/auth">Office 365 Lure</button>
+                                    <button type="button" class="quick-example quick-chip-btn" data-url="https://www.google.com">Google (Safe)</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div id="scan-loading" class="hidden pt-5 border-t border-cyan-500/20 flex items-center justify-center gap-3 text-sm text-cyan-200">
+                            <div class="w-5 h-5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+                            <span>WebEye workers analyzing domain heuristics, TLS chain, DNS posture, and CTI feeds...</span>
+                        </div>
+                    </div>
+
+                    <!-- Scanner Results Panel -->
+                    <div id="scan-results" class="hidden space-y-6">
+                        <!-- Verdict Banner Card -->
+                        <div class="dash-card p-6 flex flex-col xl:flex-row items-start xl:items-center justify-between gap-6">
+                            <div class="flex items-center gap-5 w-full xl:w-auto">
+                                <div class="relative w-24 h-24 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-24 h-24 -rotate-90" viewBox="0 0 80 80">
+                                        <circle cx="40" cy="40" r="32" class="fill-none stroke-[#10192b] stroke-[6]"></circle>
+                                        <circle id="score-circle-bar" cx="40" cy="40" r="32" class="fill-none stroke-emerald-500 stroke-[6]" stroke-linecap="round" stroke-dasharray="201" stroke-dashoffset="201"></circle>
+                                    </svg>
+                                    <div class="absolute flex flex-col items-center">
+                                        <span id="res-score" class="text-2xl font-bold text-white mono">0</span>
+                                        <span class="text-[9px] uppercase tracking-widest text-slate-400 font-bold">RISK</span>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-1.5 min-w-0">
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <span id="res-verdict" class="px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                                            Clean / Safe
+                                        </span>
+                                        <span id="res-confidence-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+                                            Confidence: --%
+                                        </span>
+                                        <span id="res-scan-id" class="text-xs text-slate-400 mono">SCN-00000000</span>
+                                    </div>
+                                    <h4 id="res-domain" class="text-xl font-bold text-white break-all font-display">target-domain.com</h4>
+                                    <p class="text-xs text-slate-400 truncate max-w-lg">
+                                        <a id="res-url" href="#" target="_blank" class="text-cyan-400 hover:underline mono">https://target-domain.com</a>
+                                    </p>
+                                    <p class="text-[11px] text-slate-500">Inspected at <span id="res-timestamp">Just now</span></p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col xl:items-end gap-3 text-left xl:text-right w-full xl:max-w-xl">
+                                <p id="res-summary" class="text-xs text-slate-300 leading-relaxed">Assessment completed cleanly.</p>
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <button id="btn-view-in-graph" class="btn-secondary text-xs py-1.5 px-3">
+                                        <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <circle cx="6" cy="6" r="2.5" stroke-width="2" />
+                                            <circle cx="18" cy="7" r="2.5" stroke-width="2" />
+                                            <circle cx="12" cy="18" r="2.5" stroke-width="2" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8.2 7.2l7.4-.2M7.4 8.1l3.5 7.7M16.7 9.2l-3.5 6.6" />
+                                        </svg>
+                                        <span>View in Threat Graph</span>
+                                    </button>
+                                    <button id="btn-run-in-sandbox" class="btn-secondary text-xs py-1.5 px-3">
+                                        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <rect x="3" y="4" width="18" height="16" rx="2" stroke-width="2" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9h18M9 14l2 2 4-4" />
+                                        </svg>
+                                        <span>Run in Browser Sandbox</span>
+                                    </button>
+                                    <button id="btn-view-in-mitre" class="btn-secondary text-xs py-1.5 px-3">
+                                        <svg class="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h4v4H4V6zm6 0h4v4h-4V6zm6 0h4v4h-4V6zM4 12h4v4H4v-4zm6 0h4v4h-4v-4z" />
+                                        </svg>
+                                        <span>MITRE ATT&amp;CK Report</span>
+                                    </button>
+                                    <button id="btn-export-pdf" class="btn-primary text-xs py-1.5 px-3">
+                                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                        <span>Download Incident PDF</span>
+                                    </button>
+                                    <button id="btn-export-stix" class="btn-secondary text-xs py-1.5 px-3">
+                                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                        </svg>
+                                        <span>Export STIX 2.1 Bundle</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Explainable Risk Breakdown -->
+                        <div id="explainability-card" class="dash-card p-6 space-y-5">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
+                                <div>
+                                    <h4 class="font-semibold text-sm text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                                        <span>Explainable Risk Score Breakdown</span>
+                                    </h4>
+                                    <p id="res-confidence-reason" class="text-xs text-slate-400 mt-0.5">Detailed factor weights, confidence, and evidence coverage.</p>
+                                </div>
+                                <span id="res-breakdown-total" class="text-xs font-semibold text-cyan-300 mono bg-[#070b14] border border-slate-800 px-3 py-1 rounded-lg">
+                                    Total: 0.0 / 100
+                                </span>
+                            </div>
+
+                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                                <div class="space-y-2.5">
+                                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Score Drivers</span>
+                                    <ul id="list-score-breakdown" class="space-y-2 max-h-60 overflow-y-auto pr-1 text-xs">
+                                        <li class="text-slate-500">No penalty factors triggered.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="space-y-2.5">
+                                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Individual Engine Scores</span>
+                                    <div id="container-engine-scores" class="space-y-2.5">
+                                        <p class="text-xs text-slate-500">No engine breakdown available.</p>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2.5">
+                                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Missing Evidence &amp; Gaps</span>
+                                    <ul id="list-missing-evidence" class="space-y-2 max-h-60 overflow-y-auto pr-1 text-xs">
+                                        <li class="text-emerald-400">All expected evidence signals were collected.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4 Forensic Engines Matrix -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <!-- Card 1 -->
+                            <div class="dash-card p-6 space-y-4">
+                                <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
+                                    <h4 class="font-semibold text-sm text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                        <span>1. Threat Heuristics &amp; Lexical Analysis</span>
+                                    </h4>
+                                    <span id="card-threat-score" class="text-xs font-bold text-cyan-300 mono">0/100</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3 text-xs">
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80">
+                                        <span class="text-slate-400 text-[11px]">Domain Entropy</span>
+                                        <p id="val-entropy" class="font-semibold text-white mono mt-0.5">0.0</p>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80">
+                                        <span class="text-slate-400 text-[11px]">Brand Impersonation</span>
+                                        <p id="val-impersonation" class="font-semibold text-white mt-0.5">None</p>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80">
+                                        <span class="text-slate-400 text-[11px]">Homoglyph / Punycode</span>
+                                        <p id="val-homoglyph" class="font-semibold text-white mt-0.5">None</p>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80">
+                                        <span class="text-slate-400 text-[11px]">Credential Forms</span>
+                                        <p id="val-password" class="font-semibold text-white mt-0.5">No</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Detection Indicators</span>
+                                    <ul id="list-threat-flags" class="mt-2 space-y-1.5 max-h-28 overflow-y-auto text-xs text-slate-300">
+                                        <li>No malicious indicators found.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="dash-card p-6 space-y-4">
+                                <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
+                                    <h4 class="font-semibold text-sm text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                        <span>2. Web Security Posture &amp; DNS</span>
+                                    </h4>
+                                    <span id="card-sec-score" class="text-xs font-bold text-emerald-300 mono">0/100</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3 text-xs">
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80 flex items-center justify-between">
+                                        <span class="text-slate-400">Headers Grade</span>
+                                        <span id="val-headers-grade" class="font-bold text-white mono">A+</span>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80 flex items-center justify-between">
+                                        <span class="text-slate-400">HSTS Status</span>
+                                        <span id="val-hsts" class="font-semibold text-white">Enabled</span>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80 col-span-2">
+                                        <span class="text-slate-400 text-[11px]">DNS SPF Sender Policy</span>
+                                        <p id="val-spf" class="font-medium text-slate-200 mt-0.5">Active</p>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80 col-span-2">
+                                        <span class="text-slate-400 text-[11px]">DNS DMARC Policy</span>
+                                        <p id="val-dmarc" class="font-medium text-slate-200 mt-0.5">Enforced</p>
+                                    </div>
+                                </div>
+                                <div class="text-xs text-slate-400 flex items-center justify-between pt-1">
+                                    <span>Resolved IP / ASN:</span>
+                                    <span id="val-ip" class="mono text-cyan-200">N/A</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="dash-card p-6 space-y-4">
+                                <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
+                                    <h4 class="font-semibold text-sm text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+                                        <span>3. SSL/TLS Certificate Validator</span>
+                                    </h4>
+                                    <span id="card-cert-score" class="text-xs font-bold text-sky-300 mono">0/100</span>
+                                </div>
+                                <div class="space-y-2.5 text-xs">
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80 flex items-center justify-between">
+                                        <span class="text-slate-400">Certificate Status</span>
+                                        <span id="val-cert-valid" class="font-semibold text-emerald-400">Valid</span>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80">
+                                        <span class="text-slate-400 text-[11px]">Issuer CA</span>
+                                        <p id="val-cert-issuer" class="font-semibold text-white truncate mt-0.5">DigiCert Global</p>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3 text-xs">
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80">
+                                        <span class="text-slate-400 text-[11px]">Certificate Age</span>
+                                        <p id="val-cert-age" class="font-semibold text-white mono mt-0.5">N/A</p>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80">
+                                        <span class="text-slate-400 text-[11px]">Domain Match</span>
+                                        <p id="val-cert-mismatch" class="font-semibold text-white mt-0.5">Passed</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="dash-card p-6 space-y-4">
+                                <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
+                                    <h4 class="font-semibold text-sm text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-violet-400"></span>
+                                        <span>4. Real-Time Threat Intelligence Hub</span>
+                                    </h4>
+                                    <div class="flex items-center gap-2">
+                                        <span id="val-cache-hits" class="text-[11px] px-2 py-0.5 rounded bg-[#070b14] text-slate-400 border border-slate-800 mono">0 cached</span>
+                                        <span id="card-intel-score" class="text-xs font-bold text-violet-300 mono">0/100</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-2.5 text-xs">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-slate-400 uppercase tracking-wider text-[11px] font-semibold">Feed Sources &amp; Provenance</span>
+                                        <span id="val-urlhaus" class="text-[11px] text-slate-400 truncate max-w-[180px]">Clean</span>
+                                    </div>
+                                    <div id="container-cti-providers" class="space-y-2 max-h-52 overflow-y-auto pr-1">
+                                        <div class="p-2.5 rounded-lg bg-[#070b14] border border-slate-800 text-slate-400">Waiting for scan...</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-[#070b14] border border-slate-800/80 flex items-center justify-between">
+                                        <span class="text-slate-400">Analyst Consensus</span>
+                                        <span class="font-semibold text-white mono">
+                                            <span class="text-rose-400">+<span id="val-votes-malicious">0</span></span> /
+                                            <span class="text-emerald-400">-<span id="val-votes-benign">0</span></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400">Threat Tags:</span>
+                                    <div id="container-intel-tags" class="flex flex-wrap gap-1 mt-1.5">
+                                        <span class="text-xs text-slate-500">None</span>
+                                    </div>
+                                </div>
+                                <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between">
+                                    <span class="text-xs text-slate-400">Vote on target:</span>
+                                    <div class="flex items-center gap-2">
+                                        <button onclick="castVote('malicious')" class="px-3 py-1 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs font-medium">Flag Malicious</button>
+                                        <button onclick="castVote('benign')" class="px-3 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-medium">Mark Clean</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mitigations Card -->
+                        <div class="dash-card p-6 space-y-3">
+                            <h4 class="font-semibold text-sm text-white flex items-center gap-2">
+                                <svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                                <span>Recommended Countermeasures &amp; Mitigations (MITRE ATT&amp;CK)</span>
+                            </h4>
+                            <ul id="list-mitigations" class="space-y-1.5 text-xs text-slate-300">
+                                <li>Target is operating under standard security parameters.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     VIEW 2: ASYNC BOUNDED-CONCURRENCY BATCH EVALUATOR
+                     ========================================================= -->
+                <div id="tab-batch" class="tab-pane-view hidden space-y-6">
+                    <div class="dash-card p-6 sm:p-8 space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div class="space-y-1">
+                                <h3 class="text-lg font-bold text-white">Asynchronous Batch Domain Assessment</h3>
+                                <p class="text-xs text-slate-400">Queue up to 25 URLs (one per line) using bounded background concurrency without blocking the WebEye server.</p>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-[11px] font-semibold text-cyan-300 mono">API v1 · Async Worker Queue</span>
+                        </div>
+                        <form id="batch-form" class="space-y-3">
+                            <textarea
+                                id="batch-urls-input"
+                                rows="5"
+                                placeholder="https://example.com&#10;http://paypa1-update.xyz&#10;http://microsoft-login.icu"
+                                class="w-full p-3.5 rounded-xl bg-[#070b14] border border-slate-800 text-white placeholder-slate-500 mono text-xs focus:outline-none focus:border-cyan-400"
+                                required
+                            ></textarea>
+                            <div class="flex flex-wrap items-center gap-3">
+                                <button type="submit" id="btn-batch-scan" class="btn-primary text-xs">Queue Async Batch Job</button>
+                                <label class="flex items-center gap-2 text-xs text-slate-300">
+                                    <span>Worker Concurrency:</span>
+                                    <select id="batch-concurrency-select" class="input-dark text-xs py-1 px-2.5 w-20">
+                                        <option value="2">2</option>
+                                        <option value="4" selected>4</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </label>
+                                <button type="button" id="btn-batch-cancel" class="hidden btn-secondary text-xs text-rose-300 border-rose-500/40">Cancel Job</button>
+                            </div>
+                        </form>
+
+                        <div id="batch-progress-panel" class="hidden p-4 rounded-xl bg-[#070b14] border border-slate-800 space-y-2">
+                            <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
+                                <div class="flex items-center gap-2">
+                                    <span id="batch-job-id-badge" class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 mono font-bold">JOB-00000000</span>
+                                    <span id="batch-progress-status" class="font-semibold uppercase text-amber-300">QUEUED</span>
+                                </div>
+                                <span id="batch-progress-text" class="text-slate-300 mono">0 / 0 completed (0%)</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-[#111a2d] overflow-hidden">
+                                <div id="batch-progress-bar" class="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 transition-all duration-300" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div id="batch-results-wrap" class="hidden pt-4 border-t border-slate-800/80 overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="border-b border-slate-800 text-slate-400 uppercase font-semibold">
+                                        <th class="py-2.5 px-4">Target URL</th>
+                                        <th class="py-2.5 px-4">Domain</th>
+                                        <th class="py-2.5 px-4 text-center">Score</th>
+                                        <th class="py-2.5 px-4 text-center">Verdict</th>
+                                        <th class="py-2.5 px-4 text-right">Audit</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="batch-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="dash-card p-6 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="text-sm font-bold text-white">Recent Asynchronous Batch Jobs</h4>
+                            <button type="button" onclick="loadBatchJobsHistory()" class="text-xs text-cyan-400 hover:underline">Refresh</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="border-b border-slate-800 text-slate-400 uppercase font-semibold">
+                                        <th class="py-2 px-3">Job ID</th>
+                                        <th class="py-2 px-3">Status</th>
+                                        <th class="py-2 px-3 text-center">Progress</th>
+                                        <th class="py-2 px-3 text-center">Concurrency</th>
+                                        <th class="py-2 px-3">Created</th>
+                                        <th class="py-2 px-3 text-right">Inspect</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="batch-jobs-tbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     VIEW 3: THREAT DATABASE & IOC POOL
+                     ========================================================= -->
+                <div id="tab-threat-intel" class="tab-pane-view hidden space-y-6">
+                    <div class="dash-card p-6 sm:p-8 space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div class="space-y-1">
+                                <h3 class="text-lg font-bold text-white">Indicators of Compromise (IoCs) &amp; Threat Feed</h3>
+                                <p class="text-xs text-slate-400">Live WebEye intelligence pool with abuse.ch URLhaus correlation and peer consensus voting.</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <a href="/api/export/stix" target="_blank" class="btn-secondary text-xs">Download STIX Feed</a>
+                                <button onclick="document.getElementById('modal-submit').classList.remove('hidden')" class="btn-primary text-xs">
+                                    + Submit IoC
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="border-b border-slate-800 text-slate-400 uppercase font-semibold">
+                                        <th class="py-2.5 px-4">Indicator</th>
+                                        <th class="py-2.5 px-4">Type</th>
+                                        <th class="py-2.5 px-4">Tags</th>
+                                        <th class="py-2.5 px-4">Source</th>
+                                        <th class="py-2.5 px-4 text-center">Community Votes</th>
+                                        <th class="py-2.5 px-4 text-right">Verify Target</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ioc-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     VIEW 4: SCAN HISTORY & STIX LOGS
+                     ========================================================= -->
+                <div id="tab-history" class="tab-pane-view hidden space-y-6">
+                    <div class="dash-card p-6 sm:p-8 space-y-4">
+                        <div class="space-y-1">
+                            <h3 class="text-lg font-bold text-white">Historical Security Audits</h3>
+                            <p class="text-xs text-slate-400">Persistent log of WebEye security audits and threat assessments across inspected targets.</p>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="border-b border-slate-800 text-slate-400 uppercase font-semibold">
+                                        <th class="py-2.5 px-4">Scan ID</th>
+                                        <th class="py-2.5 px-4">Target URL</th>
+                                        <th class="py-2.5 px-4 text-center">Risk Score</th>
+                                        <th class="py-2.5 px-4 text-center">Verdict</th>
+                                        <th class="py-2.5 px-4">Timestamp</th>
+                                        <th class="py-2.5 px-4 text-right">Audit</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="history-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     VIEW 5: WEBEYE SECURITY ARCHITECTURE & INFOGRAPHICS
+                     ========================================================= -->
+                <div id="tab-infographics" class="tab-pane-view hidden space-y-8">
+                    <div class="dash-card p-6 sm:p-8 space-y-2">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">WebEye Detection Architecture &amp; Diagnostics</h3>
+                                <p class="text-xs text-slate-400">Deep visual blueprint of WebEye heuristic math, cryptographic verification, and threat feeds.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Infographic 1 -->
+                    <div class="dash-card p-6 sm:p-8 space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+                            <div>
+                                <h4 class="text-base font-bold text-white flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+                                    <span>Infographic 1: Multi-Engine Threat Assessment Pipeline</span>
+                                </h4>
+                                <p class="text-xs text-slate-400 mt-1">Four independent engines contribute to the weighted WebEye composite threat score.</p>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">Composite Model</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div class="infographic-engine-card">
+                                <div class="flex items-center justify-between">
+                                    <span class="engine-step-badge">Engine 1</span>
+                                    <span class="engine-weight-badge">Weight: 35%</span>
+                                </div>
+                                <h5 class="text-sm font-bold text-white mt-3">Heuristic Threat Analyzer</h5>
+                                <p class="text-xs text-slate-400 mt-1">Lexical entropy, brand spoofing, Unicode homoglyphs, and credential form inspection.</p>
+                                <div class="engine-metrics-list">
+                                    <div class="metric-item"><span>Monitored Brands:</span><strong>15</strong></div>
+                                    <div class="metric-item"><span>Homoglyph Rules:</span><strong>114</strong></div>
+                                    <div class="metric-item"><span>Suspicious TLDs:</span><strong>20</strong></div>
+                                </div>
+                            </div>
+
+                            <div class="infographic-engine-card">
+                                <div class="flex items-center justify-between">
+                                    <span class="engine-step-badge">Engine 2</span>
+                                    <span class="engine-weight-badge">Weight: 20%</span>
+                                </div>
+                                <h5 class="text-sm font-bold text-white mt-3">Web Security &amp; DNS</h5>
+                                <p class="text-xs text-slate-400 mt-1">HTTP security headers grading (A+ to F), HSTS, CSP, and DNS SPF/DMARC checks.</p>
+                                <div class="engine-metrics-list">
+                                    <div class="metric-item"><span>HSTS / CSP:</span><strong>Audited</strong></div>
+                                    <div class="metric-item"><span>Clickjack Def:</span><strong>X-Frame</strong></div>
+                                    <div class="metric-item"><span>Email Spoof:</span><strong>SPF/DMARC</strong></div>
+                                </div>
+                            </div>
+
+                            <div class="infographic-engine-card">
+                                <div class="flex items-center justify-between">
+                                    <span class="engine-step-badge">Engine 3</span>
+                                    <span class="engine-weight-badge">Weight: 20%</span>
+                                </div>
+                                <h5 class="text-sm font-bold text-white mt-3">SSL/TLS Validator</h5>
+                                <p class="text-xs text-slate-400 mt-1">Cryptographic X.509 chain, Issuer CA validation, SAN domain matching, and cert age.</p>
+                                <div class="engine-metrics-list">
+                                    <div class="metric-item"><span>Trust Root:</span><strong>DigiCert/Google</strong></div>
+                                    <div class="metric-item"><span>SAN Match:</span><strong>Verified</strong></div>
+                                    <div class="metric-item"><span>Fresh Cert:</span><strong>&lt; 3 Days Flag</strong></div>
+                                </div>
+                            </div>
+
+                            <div class="infographic-engine-card">
+                                <div class="flex items-center justify-between">
+                                    <span class="engine-step-badge">Engine 4</span>
+                                    <span class="engine-weight-badge">Weight: 25%</span>
+                                </div>
+                                <h5 class="text-sm font-bold text-white mt-3">Threat Intel Hub</h5>
+                                <p class="text-xs text-slate-400 mt-1">Queries VirusTotal, Google Safe Browsing, URLhaus, OpenPhish, PhishTank, OTX, and AbuseIPDB.</p>
+                                <div class="engine-metrics-list">
+                                    <div class="metric-item"><span>URLhaus Feed:</span><strong>abuse.ch</strong></div>
+                                    <div class="metric-item"><span>IoC Consensus:</span><strong>Peer Voting</strong></div>
+                                    <div class="metric-item"><span>SIEM Export:</span><strong>STIX 2.1</strong></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-[#070b14] border border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-bold text-slate-200">Correlation Logic:</span>
+                                <span class="text-xs text-slate-400">CTI feed hit ➔ Override 92+ Critical • Brand spoof + password form ➔ 88+ Phishing Kit</span>
+                            </div>
+                            <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span>Output: MITRE ATT&amp;CK Dossiers + STIX 2.1 + PDF</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Infographic 2 -->
+                    <div class="dash-card p-6 sm:p-8 space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+                            <div>
+                                <h4 class="text-base font-bold text-white flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                                    <span>Infographic 2: Shannon Entropy &amp; Lexical Heuristic Scale</span>
+                                </h4>
+                                <p class="text-xs text-slate-400 mt-1">Measuring hostname randomness to detect algorithmic DGA domains and phishing lures.</p>
+                            </div>
+                            <span class="text-xs mono text-cyan-300">H(X) = -Σ P(x) log₂ P(x)</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-xs font-semibold">
+                                <span class="text-emerald-400">0.0 - 2.8 (Low Randomness)</span>
+                                <span class="text-amber-400">2.8 - 3.5 (Moderate Entropy)</span>
+                                <span class="text-rose-400">&gt; 3.5 (High Entropy / DGA)</span>
+                            </div>
+                            <div class="entropy-gradient-track">
+                                <div class="entropy-marker" style="left: 28%;" title="google.com (2.25)">
+                                    <span class="marker-bubble bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">google.com (2.25)</span>
+                                </div>
+                                <div class="entropy-marker" style="left: 82%;" title="paypa1-security-verification.xyz (3.82)">
+                                    <span class="marker-bubble bg-rose-500/20 text-rose-300 border border-rose-500/40">paypa1-verification.xyz (3.82)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Infographic 3 -->
+                    <div class="dash-card p-6 sm:p-8 space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+                            <div>
+                                <h4 class="text-base font-bold text-white flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                                    <span>Infographic 3: Unicode Homoglyph &amp; Leetspeak Spoofing Matrix</span>
+                                </h4>
+                                <p class="text-xs text-slate-400 mt-1">Optical character lookalikes intercepted automatically by WebEye lexical normalization.</p>
+                            </div>
+                            <span class="px-2.5 py-0.5 rounded text-xs bg-amber-500/10 text-amber-300 border border-amber-500/30">114 Rules Active</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="p-4 rounded-xl bg-[#070b14] border border-slate-800/80 space-y-2">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-slate-400">Cyrillic 'а' vs Latin 'a'</span>
+                                    <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold mono">U+0430</span>
+                                </div>
+                                <div class="text-sm font-bold text-white mono">p<span class="text-rose-400 underline">а</span>ypal.com</div>
+                                <p class="text-xs text-slate-400">Decodes Punycode <code class="mono text-cyan-300">xn--pypal-47a.com</code> and alerts immediately.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-[#070b14] border border-slate-800/80 space-y-2">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-slate-400">Leetspeak Substitution</span>
+                                    <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold mono">1 ➔ l</span>
+                                </div>
+                                <div class="text-sm font-bold text-white mono">paypa<span class="text-amber-400 underline">1</span>.com</div>
+                                <p class="text-xs text-slate-400">Levenshtein edit-distance flags proximity to monitored enterprise brands.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-[#070b14] border border-slate-800/80 space-y-2">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-slate-400">Subdomain Deception</span>
+                                    <span class="px-2 py-0.5 rounded bg-violet-500/20 text-violet-300 font-bold">Prefix Abuse</span>
+                                </div>
+                                <div class="text-sm font-bold text-white mono">microsoft.com.<span class="text-violet-400 underline">verify-id.xyz</span></div>
+                                <p class="text-xs text-slate-400">Isolates apex registrable host so nested decoy prefixes never fool scoring.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     VIEW 6: THREAT RELATIONSHIP GRAPH
+                     ========================================================= -->
+                <div id="tab-graph" class="tab-pane-view hidden space-y-5">
+                    <div class="dash-card p-5 space-y-4">
+                        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                                    <span>Threat Relationship Graph</span>
+                                    <span id="graph-focus-banner" class="hidden px-2.5 py-0.5 rounded-full text-[11px] bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+                                        Focused
+                                    </span>
+                                </h3>
+                                <p class="text-xs text-slate-400 mt-0.5">
+                                    Correlates domains, IP addresses, SSL/TLS certificates, URLs, hosting/DNS providers, and phishing campaigns to expose shared adversary infrastructure.
+                                </p>
+                            </div>
+
+                            <form id="graph-filter-form" class="flex flex-wrap items-center gap-2">
+                                <input
+                                    type="text"
+                                    id="graph-search-input"
+                                    placeholder="Filter domain, IP, cert, campaign..."
+                                    class="px-3 py-2 rounded-xl bg-[#070b14] border border-slate-800 text-white placeholder-slate-500 text-xs w-60 focus:outline-none focus:border-cyan-400"
+                                >
+                                <label class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#070b14] border border-slate-800 text-xs text-slate-300 cursor-pointer">
+                                    <input type="checkbox" id="graph-threats-only" class="w-3.5 h-3.5 rounded">
+                                    <span>Threats Only</span>
+                                </label>
+                                <button type="submit" class="btn-primary text-xs py-2 px-3.5">Filter</button>
+                                <button type="button" id="btn-graph-reset" class="btn-secondary text-xs py-2 px-3">Reset</button>
+                            </form>
+                        </div>
+
+                        <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-3 pt-3 border-t border-slate-800/80">
+                            <div class="flex flex-wrap items-center gap-2" id="graph-type-filters">
+                                <button type="button" class="graph-type-pill" data-node-type="domain">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
+                                    <span>Domains</span>
+                                    <span class="mono text-slate-400" id="gcount-domain">0</span>
+                                </button>
+                                <button type="button" class="graph-type-pill" data-node-type="ip">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                                    <span>IP Addresses</span>
+                                    <span class="mono text-slate-400" id="gcount-ip">0</span>
+                                </button>
+                                <button type="button" class="graph-type-pill" data-node-type="certificate">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-violet-400"></span>
+                                    <span>Certificates</span>
+                                    <span class="mono text-slate-400" id="gcount-certificate">0</span>
+                                </button>
+                                <button type="button" class="graph-type-pill" data-node-type="url">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+                                    <span>URLs</span>
+                                    <span class="mono text-slate-400" id="gcount-url">0</span>
+                                </button>
+                                <button type="button" class="graph-type-pill" data-node-type="hosting">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                                    <span>Hosting / DNS</span>
+                                    <span class="mono text-slate-400" id="gcount-hosting">0</span>
+                                </button>
+                                <button type="button" class="graph-type-pill" data-node-type="campaign">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+                                    <span>Campaigns</span>
+                                    <span class="mono text-slate-400" id="gcount-campaign">0</span>
+                                </button>
+                            </div>
+
+                            <div class="flex flex-wrap items-center gap-4 text-xs text-slate-400">
+                                <span>Nodes: <strong id="graph-total-nodes" class="text-white mono">0</strong></span>
+                                <span>Edges: <strong id="graph-total-edges" class="text-white mono">0</strong></span>
+                                <span>Shared Pivots: <strong id="graph-total-clusters" class="text-amber-300 mono">0</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                        <div class="lg:col-span-8 dash-card p-3 space-y-2">
+                            <div class="graph-canvas-stage" id="threat-graph-stage">
+                                <canvas id="threat-graph-canvas"></canvas>
+                                <div id="graph-tooltip" class="graph-tooltip hidden"></div>
+
+                                <div class="absolute top-3 right-3 flex items-center gap-1.5 z-10">
+                                    <button type="button" id="btn-graph-zoom-in" title="Zoom In" class="px-2.5 py-1 rounded-lg bg-[#070b14]/90 border border-slate-700 text-xs font-bold text-slate-200 hover:border-cyan-400">+</button>
+                                    <button type="button" id="btn-graph-zoom-out" title="Zoom Out" class="px-2.5 py-1 rounded-lg bg-[#070b14]/90 border border-slate-700 text-xs font-bold text-slate-200 hover:border-cyan-400">-</button>
+                                    <button type="button" id="btn-graph-fit" title="Fit Graph to View" class="px-2.5 py-1 rounded-lg bg-[#070b14]/90 border border-slate-700 text-xs font-semibold text-slate-200 hover:border-cyan-400">Fit</button>
+                                    <button type="button" id="btn-graph-relayout" title="Re-run Force Layout" class="px-2.5 py-1 rounded-lg bg-[#070b14]/90 border border-slate-700 text-xs font-semibold text-slate-200 hover:border-cyan-400">Re-Layout</button>
+                                </div>
+
+                                <div class="absolute bottom-3 left-3 flex flex-wrap items-center gap-3 px-3 py-1.5 rounded-lg bg-[#070b14]/88 border border-slate-800 text-[10px] text-slate-400 pointer-events-none">
+                                    <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full border-2 border-rose-500"></span>Malicious</span>
+                                    <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full border-2 border-orange-500"></span>High Risk</span>
+                                    <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full border-2 border-amber-400"></span>Suspicious</span>
+                                    <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full border-2 border-emerald-500"></span>Benign</span>
+                                    <span class="text-slate-500">· Drag nodes · Scroll zoom · Click node to inspect</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-4 space-y-5">
+                            <div class="dash-card p-5 space-y-3">
+                                <div class="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
+                                    <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                        <span>Entity Inspector</span>
+                                    </h4>
+                                    <span id="graph-inspector-type" class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-[#070b14] text-cyan-300 border border-slate-800 mono">
+                                        Select Node
+                                    </span>
+                                </div>
+                                <div id="graph-node-inspector" class="text-xs text-slate-400 space-y-3">
+                                    <p>Click any domain, IP address, certificate, URL, hosting provider, or campaign node in the graph to inspect attributes and pivot relationships.</p>
+                                </div>
+                            </div>
+
+                            <div class="dash-card p-5 space-y-3">
+                                <div class="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
+                                    <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                                        <span>Shared Infrastructure &amp; Pivots</span>
+                                    </h4>
+                                    <span class="text-[11px] text-slate-400">Click to highlight</span>
+                                </div>
+                                <div id="graph-clusters-list" class="space-y-2.5 max-h-72 overflow-y-auto pr-1 text-xs">
+                                    <p class="text-slate-500">Loading infrastructure correlations...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     VIEW 7: ISOLATED BROWSER PHISHING SANDBOX
+                     ========================================================= -->
+                <div id="tab-sandbox" class="tab-pane-view hidden space-y-6">
+                    <div class="dash-card p-6 sm:p-8 space-y-5">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                            <div class="space-y-1">
+                                <h3 class="text-xl font-bold text-white tracking-tight">Isolated Browser Phishing Sandbox</h3>
+                                <p class="text-xs text-slate-400">
+                                    Detonate suspicious websites in an isolated headless Chromium worker process with SSRF interception to capture live screenshots, redirect chains, network requests, form destinations, and malicious runtime scripts.
+                                </p>
+                            </div>
+                            <span class="px-3 py-1.5 rounded-xl text-[11px] font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 flex-shrink-0 mono">
+                                Isolated Subprocess · Zero Server Execution
+                            </span>
+                        </div>
+
+                        <form id="sandbox-form" class="space-y-3">
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <input
+                                    type="text"
+                                    id="sandbox-url-input"
+                                    placeholder="Enter suspicious URL to detonate in isolated Chromium (e.g. https://example.com)"
+                                    class="flex-1 px-4 py-3 rounded-xl bg-[#070b14] border border-slate-800 text-white placeholder-slate-500 text-sm mono focus:outline-none focus:border-emerald-400"
+                                    required
+                                >
+                                <select id="sandbox-wait-select" class="px-3 py-3 rounded-xl bg-[#070b14] border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-emerald-400">
+                                    <option value="0.8">0.8s Observe (Fast)</option>
+                                    <option value="1.8" selected>1.8s Observe (Standard)</option>
+                                    <option value="3.5">3.5s Observe (Deep JS)</option>
+                                </select>
+                                <button type="submit" id="btn-sandbox-run" class="btn-primary py-3 px-6 text-sm flex items-center justify-center gap-2">
+                                    <span>Launch Sandbox</span>
+                                </button>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-2 text-xs text-slate-400">
+                                <span class="text-slate-500">Samples:</span>
+                                <button type="button" class="quick-sandbox-ex quick-chip-btn" data-url="https://example.com">example.com</button>
+                                <button type="button" class="quick-sandbox-ex quick-chip-btn" data-url="https://mail.google.com">mail.google.com</button>
+                                <button type="button" class="quick-sandbox-ex quick-chip-btn" data-url="https://accounts.google.com">accounts.google.com</button>
+                            </div>
+                        </form>
+
+                        <div id="sandbox-loading" class="hidden pt-5 border-t border-slate-800 flex items-center justify-center gap-3 text-sm text-emerald-200">
+                            <div class="w-5 h-5 border-2 border-emerald-400 border-t-transparent rounded-full animate-spin"></div>
+                            <span>Spawning ephemeral browser worker, inspecting redirects, DOM forms, scripts, and rendering screenshot...</span>
+                        </div>
+                    </div>
+
+                    <div id="sandbox-results" class="hidden space-y-6">
+                        <div class="dash-card p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="space-y-1.5">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <span id="sbx-verdict" class="px-3 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">BENIGN</span>
+                                    <span id="sbx-score-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#070b14] text-white mono border border-slate-800">Score: 0/100</span>
+                                    <span id="sbx-id" class="text-xs text-slate-400 mono">SBX-00000000</span>
+                                    <span id="sbx-worker-meta" class="text-[11px] text-slate-500 mono">Chrome · 0ms</span>
+                                    <button type="button" id="btn-sbx-mitre" class="btn-secondary text-[11px] py-1 px-2.5 flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                                        <span>MITRE ATT&amp;CK</span>
+                                    </button>
+                                </div>
+                                <h4 id="sbx-title" class="text-base font-bold text-white">Captured Page Title</h4>
+                                <p id="sbx-summary" class="text-xs text-slate-300 leading-relaxed">Sandbox execution summary.</p>
+                            </div>
+
+                            <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 text-center text-xs flex-shrink-0">
+                                <div class="p-2.5 rounded-xl bg-[#070b14] border border-slate-800">
+                                    <div id="sbx-stat-reqs" class="text-base font-bold text-white mono">0</div>
+                                    <div class="text-[10px] text-slate-400">Requests</div>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-[#070b14] border border-slate-800">
+                                    <div id="sbx-stat-3p" class="text-base font-bold text-cyan-300 mono">0</div>
+                                    <div class="text-[10px] text-slate-400">3rd-Party</div>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-[#070b14] border border-slate-800">
+                                    <div id="sbx-stat-redirects" class="text-base font-bold text-blue-300 mono">0</div>
+                                    <div class="text-[10px] text-slate-400">Redirects</div>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-[#070b14] border border-slate-800">
+                                    <div id="sbx-stat-forms" class="text-base font-bold text-amber-300 mono">0</div>
+                                    <div class="text-[10px] text-slate-400">Forms</div>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-[#070b14] border border-slate-800">
+                                    <div id="sbx-stat-scripts" class="text-base font-bold text-rose-300 mono">0</div>
+                                    <div class="text-[10px] text-slate-400">Flagged JS</div>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-[#070b14] border border-slate-800">
+                                    <div id="sbx-stat-blocked" class="text-base font-bold text-emerald-300 mono">0</div>
+                                    <div class="text-[10px] text-slate-400">SSRF Blocked</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                            <div class="lg:col-span-7 dash-card p-4 space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                        <span>Captured Viewport Screenshot (1366x768)</span>
+                                    </h4>
+                                    <button type="button" id="btn-sbx-expand-shot" class="text-xs text-cyan-400 hover:underline">Expand</button>
+                                </div>
+                                <div class="sandbox-browser-frame">
+                                    <div class="sandbox-browser-topbar">
+                                        <div class="flex items-center gap-1.5 flex-shrink-0">
+                                            <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                                            <span class="w-2.5 h-2.5 rounded-full bg-amber-400/80"></span>
+                                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400/80"></span>
+                                        </div>
+                                        <div id="sbx-frame-url" class="flex-1 px-3 py-1 rounded-lg bg-[#050811] border border-slate-800 text-[11px] text-slate-300 mono truncate">
+                                            https://target.example
+                                        </div>
+                                    </div>
+                                    <div class="sandbox-viewport-wrap" id="sbx-screenshot-wrap">
+                                        <img id="sbx-screenshot-img" src="" alt="Sandbox screenshot preview" class="hidden">
+                                        <p id="sbx-screenshot-empty" class="text-xs text-slate-500 py-16">No screenshot captured.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 space-y-5">
+                                <div class="dash-card p-5 space-y-3">
+                                    <h4 class="text-sm font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2.5">
+                                        <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                                        <span>Redirect Chain</span>
+                                    </h4>
+                                    <div id="sbx-redirects-list" class="space-y-2 max-h-48 overflow-y-auto pr-1 text-xs"></div>
+                                </div>
+
+                                <div class="dash-card p-5 space-y-3">
+                                    <h4 class="text-sm font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2.5">
+                                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                                        <span>Form Destinations &amp; Dynamic Exfiltration</span>
+                                    </h4>
+                                    <div id="sbx-forms-list" class="space-y-2 max-h-56 overflow-y-auto pr-1 text-xs"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dash-card p-6 space-y-3">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                                <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                                    <span>Suspicious Scripts &amp; Runtime Execution Traps</span>
+                                </h4>
+                                <span id="sbx-scripts-meta" class="text-xs text-slate-400">AST + Runtime Eval/Hook Monitor</span>
+                            </div>
+                            <div id="sbx-scripts-list" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs"></div>
+                        </div>
+
+                        <div class="dash-card p-6 space-y-4">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                                <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                    <span>Captured Network Requests &amp; SSRF Blocks</span>
+                                </h4>
+                                <div class="flex items-center gap-2 text-xs">
+                                    <select id="sbx-req-filter" class="px-2.5 py-1 rounded-lg bg-[#070b14] border border-slate-800 text-slate-300 text-xs">
+                                        <option value="all">All Requests</option>
+                                        <option value="third_party">3rd-Party Only</option>
+                                        <option value="blocked">Blocked / Failed Only</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="overflow-x-auto max-h-80 overflow-y-auto">
+                                <table class="w-full text-left text-xs">
+                                    <thead>
+                                        <tr class="border-b border-slate-800 text-slate-400 uppercase font-semibold">
+                                            <th class="py-2 px-3">Method</th>
+                                            <th class="py-2 px-3">Status</th>
+                                            <th class="py-2 px-3">Type</th>
+                                            <th class="py-2 px-3">Host</th>
+                                            <th class="py-2 px-3">Remote IP</th>
+                                            <th class="py-2 px-3">Request URL / Policy Note</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sbx-requests-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dash-card p-6 space-y-4">
+                        <div>
+                            <h4 class="text-base font-bold text-white">Recent Sandbox Detonations</h4>
+                            <p class="text-xs text-slate-400">Replay saved screenshots, network waterfalls, scripts, and form telemetry from prior isolated runs.</p>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="border-b border-slate-800 text-slate-400 uppercase font-semibold">
+                                        <th class="py-2.5 px-3">Sandbox ID</th>
+                                        <th class="py-2.5 px-3">Target Domain</th>
+                                        <th class="py-2.5 px-3 text-center">Score</th>
+                                        <th class="py-2.5 px-3 text-center">Verdict</th>
+                                        <th class="py-2.5 px-3">Timestamp</th>
+                                        <th class="py-2.5 px-3 text-right">Inspect</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sandbox-history-tbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     VIEW 8: EMAIL (.EML) PHISHING ANALYSIS
+                     ========================================================= -->
+                <div id="tab-email" class="tab-pane-view hidden space-y-6">
+                    <div class="dash-card p-6 sm:p-8 space-y-5">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                            <div class="space-y-1">
+                                <h3 class="text-xl font-bold text-white tracking-tight">Email Phishing &amp; .EML Forensics Analyzer</h3>
+                                <p class="text-xs text-slate-400">
+                                    Upload raw <code class="mono text-cyan-300">.eml</code> files to verify SPF/DKIM/DMARC authentication, detect display-name &amp; Reply-To spoofing, audit headers, score embedded URLs, and inspect attachments in an offline isolated worker.
+                                </p>
+                            </div>
+                            <button type="button" id="btn-eml-sample" class="btn-secondary text-xs flex-shrink-0">Load Sample Phishing .eml</button>
+                        </div>
+
+                        <form id="eml-form" class="space-y-4">
+                            <div id="eml-drop-zone" class="eml-drop-zone space-y-2">
+                                <input type="file" id="eml-file-input" accept=".eml,.txt,message/rfc822" class="hidden">
+                                <div class="text-sm font-semibold text-white">Drop a <code class="mono text-cyan-300">.eml</code> file here or click to browse</div>
+                                <div id="eml-file-status" class="text-xs text-slate-400">No file selected yet — parses MIME headers &amp; attachments safely offline.</div>
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-medium text-slate-400">Or paste raw RFC 822 / .eml content:</label>
+                                <textarea
+                                    id="eml-raw-input"
+                                    rows="5"
+                                    placeholder="From: Security Team <alerts@evil-example.xyz>&#10;Reply-To: collector@drop-site.xyz&#10;Subject: Urgent Account Verification&#10;..."
+                                    class="w-full p-3 rounded-xl bg-[#070b14] border border-slate-800 text-white placeholder-slate-500 mono text-xs focus:outline-none focus:border-cyan-400"
+                                ></textarea>
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-between gap-3">
+                                <label class="flex items-center gap-2 text-xs text-slate-300 cursor-pointer">
+                                    <input type="checkbox" id="eml-verify-dns" checked class="w-3.5 h-3.5 rounded">
+                                    <span>Verify live SPF, DKIM selector, and DMARC DNS records</span>
+                                </label>
+                                <button type="submit" id="btn-eml-analyze" class="btn-primary text-xs py-2.5 px-6">Analyze Email (.eml)</button>
+                            </div>
+                        </form>
+
+                        <div id="eml-loading" class="hidden pt-4 border-t border-slate-800 flex items-center justify-center gap-3 text-sm text-cyan-200">
+                            <div class="w-5 h-5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+                            <span>Inspecting SPF/DKIM/DMARC, headers, URLs, and attachments inside isolated worker...</span>
+                        </div>
+                    </div>
+
+                    <div id="eml-results" class="hidden space-y-6">
+                        <div class="dash-card p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="space-y-1.5">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <span id="eml-verdict" class="px-3 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">BENIGN</span>
+                                    <span id="eml-score-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#070b14] text-white mono border border-slate-800">Score: 0/100</span>
+                                    <span id="eml-id" class="text-xs text-slate-400 mono">EML-00000000</span>
+                                    <span id="eml-filename-badge" class="text-[11px] text-slate-500 mono">message.eml</span>
+                                </div>
+                                <h4 id="eml-subject" class="text-base font-bold text-white">Subject</h4>
+                                <p id="eml-summary" class="text-xs text-slate-300 leading-relaxed"></p>
+                                <p class="text-[11px] text-slate-500 mono" id="eml-meta-line"></p>
+                            </div>
+                            <div class="flex items-center gap-2 flex-shrink-0">
+                                <button type="button" id="btn-eml-mitre" class="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                                    <span>MITRE ATT&amp;CK Investigation</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="dash-card p-5 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">SPF Validation</span>
+                                    <span id="eml-spf-badge" class="px-2 py-0.5 rounded text-[10px] font-bold uppercase border">Unchecked</span>
+                                </div>
+                                <p id="eml-spf-status" class="text-xs text-slate-200 font-medium"></p>
+                                <p id="eml-spf-detail" class="text-[11px] text-slate-400 mono break-all"></p>
+                            </div>
+
+                            <div class="dash-card p-5 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">DKIM Signature</span>
+                                    <span id="eml-dkim-badge" class="px-2 py-0.5 rounded text-[10px] font-bold uppercase border">Unchecked</span>
+                                </div>
+                                <p id="eml-dkim-status" class="text-xs text-slate-200 font-medium"></p>
+                                <p id="eml-dkim-detail" class="text-[11px] text-slate-400 mono break-all"></p>
+                            </div>
+
+                            <div class="dash-card p-5 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">DMARC Alignment</span>
+                                    <span id="eml-dmarc-badge" class="px-2 py-0.5 rounded text-[10px] font-bold uppercase border">Unchecked</span>
+                                </div>
+                                <p id="eml-dmarc-status" class="text-xs text-slate-200 font-medium"></p>
+                                <p id="eml-dmarc-detail" class="text-[11px] text-slate-400 mono break-all"></p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div class="dash-card p-5 space-y-3">
+                                <h4 class="text-sm font-bold text-white flex items-center justify-between border-b border-slate-800 pb-2.5">
+                                    <span>Sender Identity &amp; Spoofing Check</span>
+                                    <span id="eml-spoof-badge" class="px-2 py-0.5 rounded text-[10px] font-semibold">Clean</span>
+                                </h4>
+                                <div class="space-y-1.5 text-xs">
+                                    <div class="flex justify-between gap-2"><span class="text-slate-400">From:</span><span id="eml-from-val" class="mono text-slate-200 text-right break-all">-</span></div>
+                                    <div class="flex justify-between gap-2"><span class="text-slate-400">Reply-To:</span><span id="eml-replyto-val" class="mono text-slate-200 text-right break-all">-</span></div>
+                                    <div class="flex justify-between gap-2"><span class="text-slate-400">Return-Path:</span><span id="eml-retpath-val" class="mono text-slate-200 text-right break-all">-</span></div>
+                                    <div class="flex justify-between gap-2"><span class="text-slate-400">Brand Impersonation:</span><span id="eml-brand-val" class="font-semibold text-white">None</span></div>
+                                </div>
+                                <ul id="eml-spoof-list" class="space-y-1.5 pt-2 border-t border-slate-800/80 text-xs text-slate-300"></ul>
+                            </div>
+
+                            <div class="dash-card p-5 space-y-3">
+                                <h4 class="text-sm font-bold text-white border-b border-slate-800 pb-2.5">Header Forensics &amp; Transport Hops</h4>
+                                <ul id="eml-anomalies-list" class="space-y-1.5 text-xs text-slate-300"></ul>
+                                <div class="max-h-40 overflow-y-auto pt-2 border-t border-slate-800/80">
+                                    <table class="w-full text-left text-[11px]">
+                                        <thead><tr class="text-slate-500 border-b border-slate-800"><th class="py-1 pr-2">Hop</th><th class="py-1 pr-2">Relay From -&gt; By</th><th class="py-1">IP</th></tr></thead>
+                                        <tbody id="eml-hops-tbody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dash-card p-6 space-y-3">
+                            <h4 class="text-sm font-bold text-white border-b border-slate-800 pb-2.5">Embedded URLs &amp; Link Deception Analysis</h4>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs">
+                                    <thead>
+                                        <tr class="border-b border-slate-800 text-slate-400 uppercase font-semibold">
+                                            <th class="py-2 px-3">Destination URL</th>
+                                            <th class="py-2 px-3">Visible Anchor Text</th>
+                                            <th class="py-2 px-3 text-center">Score</th>
+                                            <th class="py-2 px-3">Findings</th>
+                                            <th class="py-2 px-3 text-right">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="eml-urls-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="dash-card p-6 space-y-3">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                                <h4 class="text-sm font-bold text-white">Isolated Attachment Analysis</h4>
+                                <span id="eml-att-worker-badge" class="text-[11px] px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 mono">Offline Subprocess</span>
+                            </div>
+                            <div id="eml-attachments-list" class="space-y-3 text-xs"></div>
+                        </div>
+
+                        <div class="dash-card p-6 space-y-3">
+                            <h4 class="text-sm font-bold text-white border-b border-slate-800 pb-2.5">Inspect Parsed Email Headers</h4>
+                            <div class="max-h-64 overflow-y-auto">
+                                <table class="w-full text-left text-xs">
+                                    <tbody id="eml-headers-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dash-card p-6 space-y-4">
+                        <h4 class="text-base font-bold text-white">Recent Analyzed Emails (.eml)</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="border-b border-slate-800 text-slate-400 uppercase font-semibold">
+                                        <th class="py-2.5 px-3">Email ID</th>
+                                        <th class="py-2.5 px-3">Subject</th>
+                                        <th class="py-2.5 px-3">Sender</th>
+                                        <th class="py-2.5 px-3 text-center">Score</th>
+                                        <th class="py-2.5 px-3 text-center">Verdict</th>
+                                        <th class="py-2.5 px-3 text-right">Inspect</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="eml-history-tbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     VIEW 9: MITRE ATT&CK MAPPING & INVESTIGATION REPORT
+                     ========================================================= -->
+                <div id="tab-mitre" class="tab-pane-view hidden space-y-6">
+                    <div class="dash-card p-6 space-y-4">
+                        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                            <div>
+                                <div class="flex items-center gap-2.5">
+                                    <h3 class="text-base font-bold text-white">MITRE ATT&amp;CK Behavioral Mapping &amp; Investigation</h3>
+                                    <span id="mitre-priority-badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase bg-amber-500/10 text-amber-300 border border-amber-500/30">PRIORITY: LOW</span>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-1">Maps WebEye URL heuristics, browser sandbox detonations, and email phishing telemetry into actionable ATT&amp;CK kill-chain techniques, triage questions, and hunting pivots.</p>
+                            </div>
+                            <span id="mitre-context-badge" class="px-3 py-1 rounded-lg bg-[#070b14] border border-slate-800 text-xs text-cyan-200 mono self-start lg:self-center">Scope: Workspace Aggregate</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-3 pt-1">
+                            <div class="md:col-span-3">
+                                <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Scope Source</label>
+                                <select id="mitre-scope-select" class="input-dark text-xs py-2">
+                                    <option value="workspace">Workspace Aggregate (All Telemetry)</option>
+                                    <option value="scan_id">URL Scan ID</option>
+                                    <option value="sandbox_id">Browser Sandbox ID</option>
+                                    <option value="email_id">Email Analysis ID (.eml)</option>
+                                </select>
+                            </div>
+                            <div class="md:col-span-3">
+                                <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Target ID (Optional)</label>
+                                <input id="mitre-target-id" type="text" placeholder="e.g. SCN-... / SBX-... / EML-..." class="input-dark text-xs py-2 mono">
+                            </div>
+                            <div class="md:col-span-3">
+                                <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Filter by Tactic / Query</label>
+                                <input id="mitre-search-input" type="text" placeholder="Search T1566, Spoofing, Keylogger..." class="input-dark text-xs py-2">
+                            </div>
+                            <div class="md:col-span-3 flex items-end gap-2">
+                                <button type="button" id="btn-mitre-load" class="btn-primary text-xs py-2 px-4 flex-1">Map Behaviors</button>
+                                <button type="button" id="btn-mitre-reset" class="btn-secondary text-xs py-2 px-3">All</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
+                        <div class="dash-card p-4">
+                            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Mapped Techniques</div>
+                            <div id="mitre-stat-techniques" class="text-2xl font-bold text-white mono mt-1">0</div>
+                        </div>
+                        <div class="dash-card p-4">
+                            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Active Tactics</div>
+                            <div id="mitre-stat-tactics" class="text-2xl font-bold text-amber-300 mono mt-1">0 / 8</div>
+                        </div>
+                        <div class="dash-card p-4">
+                            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">High / Critical</div>
+                            <div id="mitre-stat-high" class="text-2xl font-bold text-rose-400 mono mt-1">0</div>
+                        </div>
+                        <div class="dash-card p-4">
+                            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Behavioral Hits</div>
+                            <div id="mitre-stat-evidence" class="text-2xl font-bold text-cyan-300 mono mt-1">0</div>
+                        </div>
+                        <div class="dash-card p-4">
+                            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Hunting Pivots</div>
+                            <div id="mitre-stat-sources" class="text-sm font-semibold text-slate-200 mono mt-2">0 hunt pivots</div>
+                        </div>
+                    </div>
+
+                    <div class="dash-card p-5 space-y-2 border-l-4 border-l-amber-400">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-amber-300">Kill-Chain Investigation Narrative</h4>
+                            <span id="mitre-tactic-filter" class="text-[11px] text-slate-400 mono">Showing all tactics (click any column header or cell to focus)</span>
+                        </div>
+                        <p id="mitre-narrative" class="text-xs text-slate-200 leading-relaxed">Loading ATT&amp;CK behavioral analysis...</p>
+                    </div>
+
+                    <div class="dash-card p-5 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h4 class="text-sm font-bold text-white">Enterprise ATT&amp;CK Kill-Chain Matrix</h4>
+                            <div class="flex flex-wrap items-center gap-3 text-[11px] text-slate-400">
+                                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-rose-500"></span>Critical</span>
+                                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-orange-500"></span>High</span>
+                                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-amber-500"></span>Medium</span>
+                                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-sky-400"></span>Low</span>
+                                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-slate-700"></span>Not Triggered</span>
+                            </div>
+                        </div>
+                        <div class="mitre-matrix-scroll">
+                            <div id="mitre-tactic-matrix" class="mitre-matrix-grid"></div>
+                        </div>
+                    </div>
+
+                    <div class="dash-card p-6 space-y-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Technique Investigation Dossiers</h4>
+                                <p class="text-[11px] text-slate-400">Exact observed behaviors, analyst triage questions, and telemetry hunting queries per mapped technique.</p>
+                            </div>
+                            <span id="mitre-dossier-count" class="text-xs text-slate-400 mono">0 techniques shown</span>
+                        </div>
+                        <div id="mitre-techniques-list" class="space-y-4"></div>
+                    </div>
+
+                    <div class="dash-card p-6 space-y-3">
+                        <h4 class="text-sm font-bold text-white border-b border-slate-800 pb-2.5">Recommended SOC Triage &amp; Threat Hunting Playbook</h4>
+                        <ul id="mitre-playbook-list" class="space-y-2 text-xs text-slate-300"></ul>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Fullscreen Sandbox Screenshot Lightbox -->
+    <div id="modal-sandbox-shot" class="modal-overlay hidden">
+        <div class="modal-window max-w-5xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <h3 class="text-sm font-bold text-white mono" id="modal-sbx-shot-title">Sandbox Screenshot</h3>
+                <button type="button" onclick="document.getElementById('modal-sandbox-shot').classList.add('hidden')" class="text-slate-400 hover:text-white text-sm">✕</button>
+            </div>
+            <div class="max-h-[78vh] overflow-auto rounded-xl border border-slate-800 bg-[#04070e]">
+                <img id="modal-sbx-shot-img" src="" alt="Expanded sandbox screenshot" class="w-full h-auto block">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Quick Scan Command Palette (Ctrl+K) -->
+    <div id="modal-quick-scan" class="modal-overlay hidden">
+        <div class="modal-window">
+            <div class="flex items-center justify-between p-5 border-b border-slate-800">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex items-center justify-center">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">WebEye Command Palette — Quick Target Scan</h3>
+                </div>
+                <button id="btn-close-quick-scan" class="text-slate-400 hover:text-white text-sm">✕</button>
+            </div>
+            <div class="p-6 space-y-4">
+                <form id="modal-quick-scan-form" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1.5">Enter Target URL or Domain:</label>
+                        <input
+                            type="text"
+                            id="modal-url-input"
+                            placeholder="e.g. http://paypa1-update.xyz or https://google.com"
+                            required
+                            class="w-full p-3 rounded-xl bg-[#070b14] border border-slate-800 text-white focus:outline-none focus:border-cyan-400 text-sm mono"
+                        >
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <div class="flex items-center gap-2 text-xs text-slate-400">
+                            <span class="text-slate-500">Quick:</span>
+                            <button type="button" class="quick-modal-ex quick-chip-btn" data-url="http://paypa1-security-verification.xyz/login">PayPal</button>
+                            <button type="button" class="quick-modal-ex quick-chip-btn" data-url="http://microsoft-365-password-reset.live-verify.xyz/auth">O365</button>
+                            <button type="button" class="quick-modal-ex quick-chip-btn" data-url="https://google.com">Google</button>
+                        </div>
+                        <button type="submit" class="btn-primary text-xs">Run Assessment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Submit Threat Indicator -->
+    <div id="modal-submit" class="modal-overlay hidden">
+        <div class="modal-window max-w-lg">
+            <div class="flex items-center justify-between p-5 border-b border-slate-800">
+                <h3 class="text-sm font-bold text-white">Submit WebEye Threat Indicator</h3>
+                <button onclick="document.getElementById('modal-submit').classList.add('hidden')" class="text-slate-400 hover:text-white">✕</button>
+            </div>
+            <form id="community-report-form" class="p-6 space-y-3 text-xs">
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Target Indicator (URL / Host) *</label>
+                    <input type="text" id="comm-url" placeholder="http://phishing-site.xyz/login" required class="input-dark mono">
+                </div>
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Threat Tags (comma-separated)</label>
+                    <input type="text" id="comm-tags" placeholder="#phish, #credential_stealer, #paypal" class="input-dark">
+                </div>
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Analyst Findings</label>
+                    <textarea id="comm-notes" rows="3" placeholder="Discovered in phishing lure targeting enterprise SSO tokens..." class="input-dark"></textarea>
+                </div>
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Analyst Handle</label>
+                    <input type="text" id="comm-reporter" placeholder="Analyst-1" class="input-dark">
+                </div>
+                <div class="flex justify-end gap-2 pt-3">
+                    <button type="button" onclick="document.getElementById('modal-submit').classList.add('hidden')" class="btn-secondary text-xs">Cancel</button>
+                    <button type="submit" class="btn-primary text-xs">Submit IoC</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

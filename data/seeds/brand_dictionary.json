@@ -1,0 +1,138 @@
+{
+  "brands": [
+    {
+      "name": "PayPal",
+      "canonical_domain": "paypal.com",
+      "canonical_domains": ["paypal.com", "paypal.me", "paypalobjects.com"],
+      "aliases": ["paypal", "pay-pal", "paypal-security", "paypal-service"],
+      "industry": "Fintech / Payment",
+      "severity": "critical"
+    },
+    {
+      "name": "Microsoft",
+      "canonical_domain": "microsoft.com",
+      "canonical_domains": [
+        "microsoft.com", "microsoftonline.com", "office.com", "office365.com",
+        "outlook.com", "live.com", "onedrive.com", "msn.com", "azure.com",
+        "sharepoint.com", "windows.com", "bing.com"
+      ],
+      "aliases": ["microsoft", "office365", "outlook", "onedrive", "live", "msn", "azure", "sharepoint"],
+      "industry": "Technology / Cloud",
+      "severity": "critical"
+    },
+    {
+      "name": "Google",
+      "canonical_domain": "google.com",
+      "canonical_domains": [
+        "google.com", "gmail.com", "googlemail.com", "youtube.com", "youtu.be",
+        "googleapis.com", "gstatic.com", "googleusercontent.com",
+        "google.co.uk", "google.co.in", "google.de", "google.fr", "google.ca", "google.com.au"
+      ],
+      "aliases": ["google", "gmail", "googlemail", "gsuite", "drive-google"],
+      "industry": "Technology / Cloud",
+      "severity": "critical"
+    },
+    {
+      "name": "Apple",
+      "canonical_domain": "apple.com",
+      "canonical_domains": ["apple.com", "icloud.com", "me.com", "itunes.com", "apple.co"],
+      "aliases": ["apple", "icloud", "appleid", "itunes", "find-my-iphone"],
+      "industry": "Consumer Tech",
+      "severity": "critical"
+    },
+    {
+      "name": "Amazon",
+      "canonical_domain": "amazon.com",
+      "canonical_domains": [
+        "amazon.com", "amazon.co.uk", "amazon.in", "amazon.de", "amazon.ca",
+        "amazon.fr", "amazon.co.jp", "amazonaws.com", "primevideo.com", "amzn.to"
+      ],
+      "aliases": ["amazon", "prime", "aws", "amazon-delivery", "amazon-security"],
+      "industry": "Ecommerce / Cloud",
+      "severity": "critical"
+    },
+    {
+      "name": "Chase",
+      "canonical_domain": "chase.com",
+      "canonical_domains": ["chase.com", "jpmorganchase.com", "jpmorgan.com"],
+      "aliases": ["chase", "chasebank", "chase-online"],
+      "industry": "Banking",
+      "severity": "critical"
+    },
+    {
+      "name": "Wells Fargo",
+      "canonical_domain": "wellsfargo.com",
+      "canonical_domains": ["wellsfargo.com", "wf.com"],
+      "aliases": ["wellsfargo", "wf-online", "wells-fargo"],
+      "industry": "Banking",
+      "severity": "critical"
+    },
+    {
+      "name": "Bank of America",
+      "canonical_domain": "bankofamerica.com",
+      "canonical_domains": ["bankofamerica.com", "bofa.com", "ml.com"],
+      "aliases": ["bankofamerica", "bofa", "bofabank"],
+      "industry": "Banking",
+      "severity": "critical"
+    },
+    {
+      "name": "Binance",
+      "canonical_domain": "binance.com",
+      "canonical_domains": ["binance.com", "binance.us", "bnbstatic.com"],
+      "aliases": ["binance", "binance-us", "binance-auth"],
+      "industry": "Cryptocurrency",
+      "severity": "critical"
+    },
+    {
+      "name": "Coinbase",
+      "canonical_domain": "coinbase.com",
+      "canonical_domains": ["coinbase.com"],
+      "aliases": ["coinbase", "coinbase-pro", "coinbase-wallet"],
+      "industry": "Cryptocurrency",
+      "severity": "critical"
+    },
+    {
+      "name": "Meta / Facebook",
+      "canonical_domain": "facebook.com",
+      "canonical_domains": [
+        "facebook.com", "fb.com", "instagram.com", "whatsapp.com",
+        "meta.com", "messenger.com", "threads.net"
+      ],
+      "aliases": ["facebook", "instagram", "whatsapp", "meta-security", "fb-verify"],
+      "industry": "Social Media",
+      "severity": "high"
+    },
+    {
+      "name": "Netflix",
+      "canonical_domain": "netflix.com",
+      "canonical_domains": ["netflix.com", "nflxext.com"],
+      "aliases": ["netflix", "netflix-billing", "netflix-update"],
+      "industry": "Streaming Media",
+      "severity": "high"
+    },
+    {
+      "name": "Steam",
+      "canonical_domain": "steampowered.com",
+      "canonical_domains": ["steampowered.com", "steamcommunity.com", "steamstatic.com", "valvesoftware.com"],
+      "aliases": ["steam", "steampowered", "steamcommunity", "steam-trade"],
+      "industry": "Gaming",
+      "severity": "high"
+    },
+    {
+      "name": "DocuSign",
+      "canonical_domain": "docusign.com",
+      "canonical_domains": ["docusign.com", "docusign.net"],
+      "aliases": ["docusign", "docusign-sign", "docusign-review"],
+      "industry": "Enterprise Software",
+      "severity": "critical"
+    },
+    {
+      "name": "DHL",
+      "canonical_domain": "dhl.com",
+      "canonical_domains": ["dhl.com", "dhl.de", "dhl.co.uk"],
+      "aliases": ["dhl", "dhl-parcel", "dhl-track", "dhl-express"],
+      "industry": "Logistics",
+      "severity": "high"
+    }
+  ]
+}

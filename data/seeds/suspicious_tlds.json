@@ -1,0 +1,24 @@
+{
+  "high_risk_tlds": {
+    "xyz": {"risk_weight": 25, "reason": "Extremely frequent disposable phishing/malware domains"},
+    "top": {"risk_weight": 30, "reason": "High density of spam and phishing campaigns"},
+    "tk": {"risk_weight": 35, "reason": "Free/abused TLD historically leveraged by cybercrime"},
+    "ml": {"risk_weight": 35, "reason": "Free/abused TLD associated with malware/phishing"},
+    "ga": {"risk_weight": 35, "reason": "Free/abused TLD associated with automated fraud"},
+    "cf": {"risk_weight": 35, "reason": "Free/abused TLD associated with automated fraud"},
+    "gq": {"risk_weight": 35, "reason": "Free/abused TLD associated with automated fraud"},
+    "buzz": {"risk_weight": 25, "reason": "High fraud and fake streaming/phishing concentration"},
+    "fit": {"risk_weight": 20, "reason": "Cheap TLD heavily abused in drive-by downloads"},
+    "icu": {"risk_weight": 25, "reason": "High abuse rates in malicious email links"},
+    "cam": {"risk_weight": 20, "reason": "Malicious webcam blackmail and phishing lures"},
+    "work": {"risk_weight": 20, "reason": "Fake job offer / credential phishing lures"},
+    "click": {"risk_weight": 25, "reason": "Malvertising and redirection chains"},
+    "link": {"risk_weight": 20, "reason": "Phishing lure link shorteners"},
+    "live": {"risk_weight": 15, "reason": "Often abused for brand impersonation"},
+    "loan": {"risk_weight": 25, "reason": "Predatory loan / financial credential phishing"},
+    "surf": {"risk_weight": 20, "reason": "Traffic redirection and phishing hosting"},
+    "monster": {"risk_weight": 20, "reason": "Frequent ransomware landing pages and phish"},
+    "vip": {"risk_weight": 20, "reason": "Gambling / VIP bank credential phishing"},
+    "support": {"risk_weight": 15, "reason": "Tech support scams impersonating Microsoft/Apple"}
+  }
+}
