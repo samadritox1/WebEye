@@ -153,4 +153,4 @@ python -m unittest discover -s tests -v
 
 ## 09. Track
 
-- **Cybersecurity — Phishing Defense, Threat Intelligence & Automated SOC Investigation** *(update with your exact competition/track label if submitting to an event)*.
+- **Cybersecurity — Phishing Defense, Threat Intelligence & Automated SOC Investigation**.
